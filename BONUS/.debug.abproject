@@ -1,6 +1,5 @@
 {
   "CorePlugins": [
-    "com.phonegap.plugins.barcodescanner@2.0.0",
     "org.apache.cordova.battery-status",
     "org.apache.cordova.camera",
     "org.apache.cordova.console",
@@ -20,5 +19,6 @@
     "org.apache.cordova.splashscreen",
     "org.apache.cordova.statusbar",
     "org.apache.cordova.vibration"
-  ]
+  ],
+  "CordovaPluginVariables": {}
 }
