@@ -58,6 +58,34 @@
 
 var servidor = "http://54.191.211.214/wsBonus/";
 
+function camara(id) {
+    cordova.plugins.barcodeScanner.scan(
+
+    // success callback function
+    function (result) {
+        // wrapping in a timeout so the dialog doesnt free the app
+        setTimeout(function() {
+            /*alert("We got a barcode\n" +
+                  "Result: " + result.text + "\n" +
+                  "Format: " + result.format + "\n" +
+                  "Cancelled: " + result.cancelled); */
+            $(id).val(result.text);
+        }, 0);
+    },
+
+    // error callback function
+    function (error) {
+        alert("Scanning failed: " + error);
+    },
+
+    // options object
+    {
+        "preferFrontCamera" : false,
+        "showFlipCameraButton" : true
+    });
+}
+
+
 // START_CUSTOM_CODE_kendoUiMobileApp
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 
