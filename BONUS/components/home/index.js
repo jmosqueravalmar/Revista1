@@ -26,7 +26,6 @@ app.home = kendo.observable({
         },
         submit: function () {
             //console.log(buscarModel.fields.busdocumento+"-"+buscarModel.fields.busnumero);
-
         },
         cancel: function () {},
         sesion: function () {
