@@ -27,61 +27,61 @@
     <div id="example">
         <div id="wrap" class="first-page">
             <ul id="book">
-                <li><img alt="Page 28" />
+                <li id="Pagina28"><img src="" alt="Page 28" />
                 </li>
-                <li><img alt="Page 27" />
+                <li id="Pagina27"><img src="" alt="Page 27" />
                 </li>
-                <li><img alt="Page 26" />
+                <li id="Pagina26"><img src="" alt="Page 26" />
                 </li>
-                <li><img alt="Page 25" />
+                <li id="Pagina25"><img src="" alt="Page 25" />
                 </li>
-                <li><img alt="Page 24" />
+                <li id="Pagina24"><img src="" alt="Page 24" />
                 </li>
-                <li><img alt="Page 23" />
+                <li id="Pagina23"><img src="" alt="Page 23" />
                 </li>
-                <li><img alt="Page 22" />
+                <li id="Pagina22"><img src="" alt="Page 22" />
                 </li>
-                <li><img alt="Page 21" />
+                <li id="Pagina21"><img src="" alt="Page 21" />
                 </li>
-                <li><img alt="Page 20" />
+                <li id="Pagina20"><img src="" alt="Page 20" />
                 </li>
-                <li><img alt="Page 19" />
+                <li id="Pagina19"><img src="" alt="Page 19" />
                 </li>
-                <li><img alt="Page 18" />
+                <li id="Pagina18"><img src="" alt="Page 18" />
                 </li>
-                <li><img alt="Page 17" />
+                <li id="Pagina17"><img src="" alt="Page 17" />
                 </li>
-                <li><img alt="Page 16" />
+                <li id="Pagina16"><img src="" alt="Page 16" />
                 </li>
-                <li><img alt="Page 15" />
+                <li id="Pagina15"><img src="" alt="Page 15" />
                 </li>
-                <li><img alt="Page 14" />
+                <li id="Pagina14"><img src="" alt="Page 14" />
                 </li>
-                <li><img alt="Page 13" />
+                <li id="Pagina13"><img src="" alt="Page 13" />
                 </li>
-                <li><img alt="Page 12" />
+                <li id="Pagina12"><img src="" alt="Page 12" />
                 </li>
-                <li><img alt="Page 11" />
+                <li id="Pagina11"><img src="" alt="Page 11" />
                 </li>
-                <li><img alt="Page 10" />
+                <li id="Pagina10"><img src="" alt="Page 10" />
                 </li>
-                <li><img alt="Page 9" />
+                <li id="Pagina9"><img src="" alt="Page 9" />
                 </li>
-                <li><img alt="Page 8" />
+                <li id="Pagina8"><img src="" alt="Page 8" />
                 </li>
-                <li><img alt="Page 7" />
+                <li id="Pagina7"><img src="" alt="Page 7" />
                 </li>
-                <li><img alt="Page 6" />
+                <li id="Pagina6"><img src="" alt="Page 6" />
                 </li>
-                <li><img src="components/pageturn/pagina/5.jpg" alt="Page 5" />
+                <li id="Pagina5"><img src="" alt="Page 5" />
                 </li>
-                <li><img src="components/pageturn/pagina/4.jpg" alt="Page 4" />
+                <li id="Pagina4"><img src="" alt="Page 4" />
                 </li>
-                <li><img src="components/pageturn/pagina/3.jpg" alt="Page 3" />
+                <li id="Pagina3"><img src="components/pageturn/pagina/3.jpg" alt="Page 3" />
                 </li>
-                <li><img src="components/pageturn/pagina/2.jpg" alt="Page 2" />
+                <li id="Pagina2"><img src="components/pageturn/pagina/2.jpg" alt="Page 2" />
                 </li>
-                <li class="current"><img src="components/pageturn/pagina/1.jpg" alt="Page 1" />
+                <li id="Pagina1" class="current"><img src="components/pageturn/pagina/1.jpg" alt="Page 1" />
                 </li>
             </ul>
             <a href="#" id="previous">Previous page</a>
@@ -92,7 +92,36 @@
             $("#wrap").css("height", ($(window).height() - 60) + "px");
             $("#book").css("height", ($(window).height() - 60) + "px");
 
-            function current(page) {
+            function current(page, newPageMenu) {
+
+
+                if (page == "") {
+                    cargarNuevaImagen(newPageMenu);
+                    cargarNuevaImagen(newPageMenu + 1);
+                    cargarNuevaImagen(newPageMenu - 1);
+                    var book = $("#book"),
+                        pages = book.children(),
+                        pagesCount = pages.length,
+                        current = pages.filter(".current"),
+                        currentIndex = pagesCount - current.index(),
+                        newPage;
+
+
+                    pages.attr("style", "clip: auto; opacity: 1; display: none;");
+                    pages.removeClass("current");
+
+                    $("#Pagina" + newPageMenu).attr("style", "clip: auto; opacity: 1;");
+                    $("#Pagina" + newPageMenu).addClass("current")
+
+
+                    $(".km-scroll-container").css({
+                        "-webkit-transform": "",
+                        "transform-origin": "left top 0px"
+                    });
+
+                    $("#right-drawer").data("kendoMobileDrawer").hide();
+                    return;
+                }
 
 
                 var book = $("#book"),
@@ -101,6 +130,12 @@
                     current = pages.filter(".current"),
                     currentIndex = pagesCount - current.index(),
                     newPage;
+
+                var select = "img['alt'='Page 15']";
+
+                // console.log('$("#Pagina"+currentIndex).next().attr("src"): ' + $("#Pagina" + currentIndex).next() );
+                console.log($('img[alt="Page ' + currentIndex + '"]').attr("src"));
+                console.log("xxxcurrentIndex: " + currentIndex);
 
                 if (!arguments.length) {
                     return currentIndex;
@@ -116,15 +151,42 @@
                 if (page != currentIndex) {
                     current.removeClass("current");
                     newPage = pages.eq(pagesCount - page).addClass("current");
-                    var index = currentIndex + 1;
+                    var index = currentIndex + 2;
+
+                    console.log(current);
+                    console.log(newPage);
+                    console.log("currentIndex: " + currentIndex);
+
+
                     if (page > currentIndex) {
-                        kendo.fx(book).pageturnHorizontal(current, newPage).duration(1500).play();
+                        if ($('img[alt="Page ' + currentIndex + 1 + '"]').attr("src") == "") {
+                            console.log(11);
+                            $('img[alt="Page ' + currentIndex + 1 + '"]').attr("src", "components/pageturn/pagina/" + currentIndex + 1 + ".jpg");
+                        }
+                        kendo.fx(book).pageturnHorizontal(current, newPage).duration(1000).play();
                     } else {
-                        kendo.fx(book).pageturnHorizontal(newPage, current).duration(1500).reverse();
+
+                        if ($('img[alt="Page ' + (currentIndex - 1) + '"]').attr("src") == "") {
+                            console.log(22);
+                            $('img[alt="Page ' + (currentIndex - 1) + '"]').attr("src", "components/pageturn/pagina/" + (currentIndex - 1) + ".jpg");
+                        }
+                        kendo.fx(book).pageturnHorizontal(newPage, current).duration(1000).reverse();
                     }
-                    if (!$('img[alt="Page ' + index + '"]').attr("src")) {
-                        $('img[alt="Page ' + index + '"]').attr("src", "components/pageturn/pagina/" + index + ".jpg");
-                    }
+
+                    $(".km-scroll-container").css({
+                        "-webkit-transform": "",
+                        "transform-origin": "left top 0px"
+                    });
+
+                    //$("#book").attr("style","");
+
+                    setTimeout('cargarNuevaImagen(' + index + ')', 2000);
+                }
+            }
+
+            function cargarNuevaImagen(index) {
+                if ($('img[alt="Page ' + index + '"]').attr("src") == "") {
+                    $('img[alt="Page ' + index + '"]').attr("src", "components/pageturn/pagina/" + index + ".jpg");
                 }
             }
 

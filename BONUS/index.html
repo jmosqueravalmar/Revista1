@@ -11,18 +11,18 @@
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="app.js"></script> 
+    <script src="app.js"></script>
     <link href="styles/css.css" rel="stylesheet">
 </head>
 
-<body id="kendoUiMobileApp">  
-
-    <script src="components/home/index.js"></script> 
+<body id="kendoUiMobileApp">
+    <script src="components/home/index.js"></script>
     <div data-role="layout" data-id="inicio">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
                 <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+                <a data-role="button" href="#right-drawer" data-rel="drawer" data-align="right" data-icon="reply"></a>
             </div>
         </header>
         <!-- application views will be rendered here -->
@@ -53,19 +53,38 @@
         <ul id="navigation-container" data-role="listview">
             <li><a href="components/home/view.html" data-icon="cerrar-sesion">Revista</a>
             </li>
-            <!--
-            <li><a href="components/home/view.html" data-icon="home">Inicio</a>
-            </li>
-			
-            <li><a href="components/buscar/view.html" data-icon="search">Buscar</a>
-            </li>
-            <li><a href="components/registro/view.html" data-icon="compose">Registro</a>
-            </li>-->
-            <li><a href="components/puntos/view.html" data-icon="favorites">Puntos</a>
-            </li>
-            <li><a href="components/puntosver/view.html" data-icon="favorites">Puntosver</a>
-            </li>
-            
+        </ul>
+    </div>
+    <div id="right-drawer" data-role="drawer" style="width: 6.5em;color:#fff;" data-swipe-to-open="false" data-position="right">
+        <ul data-role="listview">
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",1);'>1</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",2);'>2</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",3);'>3</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",4);'>4</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",5);'>5</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",6);'>6</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",7);'>7</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",8);'>8</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",9);'>9</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",10)'>10</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",11)'>11</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",12)'>12</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",13)'>13</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",14)'>14</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",15)'>15</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",16)'>16</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",17)'>17</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",18)'>18</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",19)'>19</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",20)'>20</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",21)'>21</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",22)'>22</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",23)'>23</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",24)'>24</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",25)'>25</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",26)'>26</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",27)'>27</a></li>
+            <li><a data-icon="reply" style="color:#fff;" onclick='current("",28)'>28</a></li>
         </ul>
     </div>
     <!-- START_CUSTOM_CODE_kendoUiMobileApp -->
